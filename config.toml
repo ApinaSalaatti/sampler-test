@@ -1,0 +1,6 @@
+[devices]
+output = 3
+controllers = [ "keyboard",]
+
+[paths]
+samples = "../samples"
