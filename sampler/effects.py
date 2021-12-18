@@ -2,6 +2,19 @@ import numpy
 import random
 distortion = False
 
+
+class Effect:
+    def __init__(self):
+        self.gain = 1000
+
+    def apply(self, data):
+        pass
+
+
+class Distortion(Effect):
+    def apply(self, data):
+        self.gain * numpy.tanh(data)
+
 def toggle_effect(e):
     global distortion
     if e == "d":

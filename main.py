@@ -11,14 +11,20 @@ except:
     print("Failed to open/parse configuration file")
     sys.exit(1)
 
+running = True
+def quit():
+    global running
+    running = False
+
 s = sampler.Sampler(config)
+sequencer = sampler.Sequencer(config, s)
 
 if "keyboard" in config["devices"]["controllers"]:
     print("Enabling keyboard")
     k = sampler.controllers.KeyboardController()
-    k.enable(s)
+    k.enable(s, quit)
 
 print("Sampler started")
-running = True
+
 while running:
-    pass
+    sequencer.update()

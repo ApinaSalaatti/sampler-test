@@ -22,7 +22,11 @@ class SampleBanks:
             self.banks.append(bank)
 
     def set_bank(self, b):
-        self.current_bank = b
+        if b >= 0 and b < len(self.banks):
+            self.current_bank = b
 
     def get_sample(self, index):
-        return self.banks[self.current_bank][index]
+        if index >= 0 and index < len(self.banks[self.current_bank]):
+            return self.banks[self.current_bank][index]
+
+        return None

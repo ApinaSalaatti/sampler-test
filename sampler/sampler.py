@@ -96,6 +96,9 @@ class Sampler:
     def set_volume(self, v):
         self.volume = v
 
+    def stop_all(self):
+        self.playing_sounds = []
+
     def audioCallback(self, outdata, frame_count, time_info, status):
         if len(self.playing_sounds) > 0:
             self.playing_sounds = self.playing_sounds[-MAX_POLYPHONY:]
@@ -114,5 +117,6 @@ class Sampler:
 
 
     def play_sample(self, s):
-        self.current_sample = PlayingSample(s)
-        self.playing_sounds.append(self.current_sample)
+        if s is not None:
+            self.current_sample = PlayingSample(s)
+            self.playing_sounds.append(self.current_sample)
