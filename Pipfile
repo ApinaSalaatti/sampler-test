@@ -9,6 +9,7 @@ sounddevice = "*"
 numpy = "*"
 pynput = "*"
 toml = "*"
+pysimplegui = "*"
 
 [dev-packages]
 

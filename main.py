@@ -19,12 +19,22 @@ def quit():
 s = sampler.Sampler(config)
 sequencer = sampler.Sequencer(config, s)
 
+updatables = []
+
 if "keyboard" in config["devices"]["controllers"]:
     print("Enabling keyboard")
     k = sampler.controllers.KeyboardController()
     k.enable(s, quit)
 
+if "gui" in config["devices"]["controllers"]:
+    print("Enabling GUI")
+    g = sampler.controllers.GUIController()
+    g.enable(s, quit)
+    updatables.append(g)
+
 print("Sampler started")
 
 while running:
     sequencer.update()
+    for u in updatables:
+        u.update()

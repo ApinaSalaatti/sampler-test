@@ -16,7 +16,7 @@ class Sequencer:
         t = time.time()
         if t >= self.next_step_time:
             self.next_step_time += self.step_length()
-            self.step_start()
+            #self.step_start()
 
     '''def step_start(self):
         #print("step starting")

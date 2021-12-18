@@ -1,6 +1,6 @@
 [devices]
 output = 3
-controllers = [ "keyboard",]
+controllers = [ "keyboard", "gui"]
 
 [paths]
-samples = "../samples"
+samples = "examples/"

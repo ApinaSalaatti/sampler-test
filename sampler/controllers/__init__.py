@@ -1,0 +1,2 @@
+from sampler.controllers.keyboard import KeyboardController
+from sampler.controllers.gui import GUIController
